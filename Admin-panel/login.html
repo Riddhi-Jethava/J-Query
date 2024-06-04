@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/login.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div>
+    <form>
+    <fieldset>
+        <legend>Login Form</legend>
+        <input type="text" name="email" placeholder="Enter Your Email"  id="username">
+        <input type="text" name="Password" placeholder="Password" id="password"><br><br>
+        <button type="button">Log in</button>
+    </fieldset>
+    </form>
+</div>
+</body>
+
+<script>
+    $(document).ready(function(){
+        $("button").click(function(){
+
+            var us=document.getElementById('username').value;
+            var pw=document.getElementById('password').value;
+
+            if(us=="admin" && pw=="123")
+            {
+                // alert("PASSWORD")
+                window.location.replace("C:/Users/admin/Desktop/FULL STACK/J-Query/Task/Admin-panel/admin-panel.html");
+            }
+        });
+    });
+</script>
+</html>

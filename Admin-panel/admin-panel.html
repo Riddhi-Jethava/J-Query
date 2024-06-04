@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-Panel</title>
+    <link rel="stylesheet" href="css/panel.css">
+    <link rel="stylesheet" href="/path/to/zabuto_calendar.min.css" />
+<script src="/path/to/cdn/jquery.min.js"></script>
+<script src="/path/to/zabuto_calendar.min.js"></script>
+
+    <!-- remix icon cdn  -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- remix icon cdn  -->
+
+     <!-- jquery cdn  -->
+     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+     <!-- jquery cdn  -->
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+</head>
+<body>
+    <aside>
+        <div class="logo">
+            <h3>Admin Panel</h3>
+        </div>
+        <div class="user">
+            <img src="images/avatar-1.jpg" alt="">
+            <h2>SIYA THAKKAR</h2>
+            <h6>siyathakkar66@gmail.com</h6>
+        </div>
+        <nav>
+            <ul>
+                <li><a href=""><i class="ri-home-4-fill"></i>Home</a></li>
+                <li><a href=""><i class="ri-file-3-fill"></i>File</a></li>
+                <li><a href=""><i class="ri-message-2-fill"></i>Message</a></li>
+                <li><a href=""><i class="ri-notification-2-fill"></i>Notification</a></li>
+                <li><a href=""><i class="ri-map-pin-2-fill"></i>Location</a></li>
+                <li><a href=""><i class="ri-pie-chart-fill"></i>Graph</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <header>     
+            <div class="search">   
+                <input type="text" name="" id="" placeholder="Search">
+                <i class="ri-search-line"></i>
+            </div>
+            <div class="menu">
+                <i class="ri-settings-3-fill"></i>
+            <i class="ri-user-3-fill" id="user"></i>
+                <i class="ri-menu-fill" id="main"></i>
+            </div>
+    </header>
+    <div class="grid">
+        <div class="grid-card1">
+            <h4>Eaening</h4><i class="ri-money-dollar-circle-line"></i>
+            <div class="count"><i class="ri-money-dollar-circle-line" id="doller"></i>628</div>
+        </div>
+        <div class="grid-card">
+            <h4>Share</h4><i class="ri-share-fill"></i>
+            <div class="count">2434</div>
+        </div>
+        <div class="grid-card">
+            <h4>Likes</h4><i class="ri-thumb-up-fill"></i>
+            <div class="count">1259</div>
+        </div>
+        <div class="grid-card">
+            <h4>Rating</h4><i class="ri-star-s-fill"></i>
+            <div class="count">8,5</div>
+        </div>
+    </div>
+    <div class="chart">
+        <canvas id="myChart" style="width:100%;max-width:850px"></canvas>
+        <div class="donut">
+        <canvas id="myCharts" style="width:100%;max-width:250px"></canvas>
+        <h4>Lorem ipsum</h4>
+        <h4>Lorem ipsum</h4>
+        <h4>Lorem ipsum</h4>
+        <h4>Lorem ipsum</h4>
+        <button>Check Now</button>
+    </div>
+    <div class="marg">
+      <h5>lorem ipsum</h5>
+      <h5>Dolar Amet</h5>
+      <canvas id="myChartes" style="width:100%;max-width:500px"></canvas>
+      <button>Click Here</button>
+      <div id="demo"></div>
+
+    </div>
+</div>
+
+</body>
+
+
+<script>
+    $(document).ready(function(){
+        $("#main").click(function(){
+            $("aside").toggleClass("hide")
+            $("header").toggleClass("head")
+            $(".grid").toggleClass("add")
+            $(".chart").toggleClass("chartadd")
+        });
+    });
+</script>
+<script>
+    var xValues = ["JAN", "FEB", "MARCH", "APRIL", "MAY", "JUNE","JULY","AUG","SEP","OCT","NOV","DEC"];
+    var yValues = [20, 25, 42, 15, 10, 25,2,5,28,40,13,25,36];
+    var barColors = ["orange", "darkblue","orange","darkblue","orange", "darkblue","orange","darkblue","orange", "darkblue","orange","darkblue"];
+    
+    new Chart("myChart", {
+      type: "bar",
+      data: {
+        labels: xValues,
+        datasets: [{
+          backgroundColor: barColors,
+          data: yValues
+        }]
+      },
+      options: {
+        legend: {display: false},
+        title: {
+          display: true,
+          text: "Result"
+        }
+      }
+    });
+    </script>
+    <script>
+        var xValues = ["Italy", "France"];
+        var yValues = [40,80];
+        var barColors = [
+          "orange",
+          "darkblue",
+
+        ];
+        
+        new Chart("myCharts", {
+          type: "doughnut",
+          data: {
+            labels: xValues,
+            datasets: [{
+              backgroundColor: barColors,
+              data: yValues
+            }]
+          },
+          options: {
+            title: {
+              display: true,
+              text: "World Wide Wine Production 2018"
+            }
+          }
+        });
+        </script>   
+        <script>
+          var xValues = [];
+          var yValues = [];
+          generateData("Math.sin(x)", 0, 10, 0.5);
+          
+          new Chart("myChartes", {
+            type: "line",
+            data: {
+              labels: xValues,
+              datasets: [{
+                fill: false,
+                pointRadius: 2,
+                borderColor: "rgba(0,0,255,0.5)",
+                data: yValues
+              }]
+            },    
+            options: {
+              legend: {display: false},
+              title: {
+                display: true,
+                text: "",
+                fontSize: 16
+              }
+            }
+          });
+          function generateData(value, i1, i2, step = 1) {
+            for (let x = i1; x <= i2; x += step) {
+              yValues.push(eval(value));
+              xValues.push(x);
+            }
+          }
+          </script>
+          <script>
+            $(document).ready(function () {
+              $("#user").click(function(){
+                  window.location.replace("login.html");
+          });
+    // Options here
+
+        });
+
+
+          </script>
+          
+</html>
